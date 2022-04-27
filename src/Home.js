@@ -14,6 +14,7 @@ function Home() {
             },
             alt
           }
+          ,description
         }`)
         .then((data)=>setPosts(data))
         .catch(console.error)
@@ -38,7 +39,7 @@ function Home() {
                   <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY-1</h2>
                   <h1 class="title-font text-lg font-medium text-gray-600 mb-3">{post.author}</h1>
                   <p class="leading-relaxed mb-3">{post.title}</p>
-                  <p class="leading-relaxed mb-3">{post.body}</p>
+                  <p class="leading-relaxed mb-3">{post.description}</p>
                   <div class="flex items-center flex-wrap ">
                     <button class="bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg flex justify-center">Learn more</button>
                    
