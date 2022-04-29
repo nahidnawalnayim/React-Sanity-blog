@@ -1,5 +1,12 @@
 import React,{useState,useEffect} from 'react'
-import sanityClient from'./client'
+import { Routes, Route, Link } from "react-router-dom";
+import sanityClient from'./client';
+import {PortableText} from '@portabletext/react'
+
+import Details from './details'
+const BlockContent = require('@sanity/block-content-to-react')
+
+
 function Home() {
     const [posts,setPosts] = useState([])
 
@@ -7,6 +14,7 @@ function Home() {
         sanityClient.fetch(`*[_type == "post"]{
           title,
           slug,
+          body,
           mainImage{
             asset->{
               _id,
@@ -40,6 +48,13 @@ function Home() {
                   <h1 class="title-font text-lg font-medium text-gray-600 mb-3">{post.author}</h1>
                   <p class="leading-relaxed mb-3">{post.title}</p>
                   <p class="leading-relaxed mb-3">{post.description}</p>
+                  <PortableText value={post.body} projectId="gmx4s8ly"
+   dataset="production"/>
+    <BlockContent blocks={post.body} projectId="gmx4s8ly"
+   dataset="production"/>
+   <Link to={"/post/"+ post.slug.current} key={post.slug.current}>read
+   
+   </Link>
                   <div class="flex items-center flex-wrap ">
                     <button class="bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg flex justify-center">Learn more</button>
                    
