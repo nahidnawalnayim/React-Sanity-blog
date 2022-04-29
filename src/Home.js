@@ -52,7 +52,7 @@ function Home() {
    dataset="production"/>
     <BlockContent blocks={post.body} projectId="gmx4s8ly"
    dataset="production"/>
-   <Link to={"/post/"+ post.slug.current} key={post.slug.current}>read
+   <Link to="/post" key={post.slug.current}>read
    
    </Link>
                   <div class="flex items-center flex-wrap ">
